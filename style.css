@@ -1,0 +1,31 @@
+.container-fluid {
+  padding: 0px;
+}
+
+.tiles {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tiles>div {
+  border-radius: 10px;
+  background-color: black;
+  margin: 5px;
+  min-width: 120px;
+  min-height: 120px;
+}
+.card>img {
+  margin: auto;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .tiles {
+      width: 100%;
+    }
+    .tiles>div {
+      margin: 0;
+      max-width: 25%;
+      }
+}
