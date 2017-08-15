@@ -1,4 +1,4 @@
 # memory
 Jquery Memory Game
 
-Incomplete
+See it live at:https://codepen.io/stefanobisio/full/wqPvGp/
