@@ -10,7 +10,8 @@ body {
   margin-bottom: 50px; 
 }
 h1 {
-  font-family: 'Bowlby One', cursive;
+  /* !important is due to an issue with codepen */
+  font-family: 'Bowlby One', cursive!important;
 }
 
 ul {
@@ -45,5 +46,11 @@ right: 0;
     margin: 1px;
     width: 100px;
     height: 100px;
+  }
+}
+@media (max-width: 480px) {
+  h1 {
+    margin: 20px 0 20px 0;
+    font-size: 20px;
   }
 }

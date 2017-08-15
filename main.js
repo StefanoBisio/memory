@@ -1,3 +1,4 @@
+
 $('#start').on("click", function(){
 
   // Checking if grid is empty (game is in progress)
@@ -8,6 +9,7 @@ $('#start').on("click", function(){
       $('#start').html("Give up");
 
       } else {
+        $('h1').html('Hello and welcome to memory');
         $('#start').html("Start again");
 
         // Emptying the grid on "Start again" and reshuffling
@@ -46,14 +48,15 @@ function gameOn() {
   var guess1 = "";
   var guess2 = "";
   var count = 0;
+  var winCount=10;
 
   $("li").click(function() {
-    if ((count < 2) &&  ($(this).children("img").hasClass("face-up")) === false) {
+    if ((count < 2) === true) {
       
       // increment guess count, show image, mark it as face up
       count++;
       $(this).children("img").show();
-      $(this).children("img").addClass("face-up");
+      // $(this).children("img").addClass("face-up");
       
       //First turn
       if (count === 1 ) { 
@@ -64,19 +67,39 @@ function gameOn() {
       else { 
         guess2 = $(this).children("img").attr("src"); 
         
-        // Checking for matching pair
-        if (guess1 === guess2) { 
-          console.log("match!");
-          $("li").children("img[src='" + guess2 + "']").addClass("match");
+        // Checking for ing pair
+        if (guess1 === guess2) {
+          winCount --; 
+
+          // Checking for winning state (no more pairs)
+          if (winCount>0) {
+
+            // Briefly displaying positive exclamation
+            var positiveArr = ['SofiShsticated!', 'Snailed it!', 'Chimpion!', 'Turtley awesome!', 'Amoosing!', 'Goose bumps!', 'Pawsitive!', 'Pandamonium!', "Cat-astrophe!"];
+            var randomWow = Math.floor((Math.random() * 8) + 1);
+            //Show exclamation
+            $('h1').html(positiveArr[randomWow]);
+            //Back to normal after 1 sec
+            setTimeout(function positiveExclamation(){
+              $('h1').html('Hello and welcome to memory');
+            }, 1000);
+            
+            $("li").children("img[src='" + guess2 + "']").addClass("match");
+            } else {
+              $('h1').html('Awesome! You beat the game!');
+              $('body').scrollTop(0);
+              $('#start').html("Restart");
+
+
+            } 
         } 
         
         // If miss, hide after 1 second
         else { 
-          console.log("miss!");
           setTimeout(function() {
             $("img").not(".match").hide();
             $("img").not(".match").removeClass("face-up");
-          }, 1000);
+          }, 700);
         }
 
         // Resetting count
@@ -84,7 +107,6 @@ function gameOn() {
       }
     }
   });
-
 
   // randomize array of images
   function randomizeImages(){
