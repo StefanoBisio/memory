@@ -53,4 +53,8 @@ right: 0;
     margin: 20px 0 20px 0;
     font-size: 20px;
   }
+  li {
+    width: 60px;
+    height: 60px;
+  }
 }
