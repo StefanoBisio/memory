@@ -1,4 +1,4 @@
 # memory
-Jquery Memory Game
+A responsive Jquery Memory Game
 
-See it live at:https://codepen.io/stefanobisio/full/wqPvGp/
+See it live at:https://stefanobisio.github.io/memory
