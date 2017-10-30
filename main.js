@@ -23,7 +23,7 @@ function gameOn() {
   var i=0;
 
   // all the animals! = ["leopard","snail","deer","parrot","rabbit","bear","lion","fish","crab","cow","pig","panda","corgi","turtle","rhinoceros","shark"];
-  var animals = ["turtle","snail","corgi","parrot","rabbit","bear","lion","fish","crab","pig"];
+  var animals = ["turtle","snail","corgi","parrot","rabbit","bear","panda","fish","crab","pig"];
   var images = [];
 
   // get images, place them in an array & randomize the order
